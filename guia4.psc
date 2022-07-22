@@ -601,4 +601,101 @@
 ////sea mágica escribir la suma. Además, el programa deberá comprobar que los números
 ////introducidos son correctos, es decir, están entre el 1 y
 
+Proceso ejercicio13
+	Definir matriz,n,m Como entero
+	
+	
+	Escribir "Ingrese n: "
+	leer n
+	
+	Escribir "Ingrese m: "
+	leer m
+	
+	
+	si (n <> m o n*m>9) Entonces
+		Escribir "La matriz ingresada no es magica."
+	SiNo
+		si (n=0 y m=0) Entonces
+			Escribir "La matriz nula."
+		SiNo
+			Dimension matriz[n,m]
+			LlenarMatriz(matriz,n,m)
+			LeerMatriz(matriz,n,m)
+			Validador(matriz,n,m)
+		FinSi
+		
+	FinSi
+	
+	
+	
+	
+FinAlgoritmo
+
+SubProceso LlenarMatriz(matriz Por Referencia,n,m)
+	
+	Para n=0 Hasta n-1 Hacer
+		Para m=0 Hasta m-1 Hacer
+			matriz[n,m]= Aleatorio(1,1)
+		FinPara
+	FinPara
+	
+FinSubProceso 
+
+SubProceso LeerMatriz (matriz Por Referencia,n,m)
+	
+	Para n=0 Hasta n-1 Hacer
+		Para m=0 Hasta m-1 Hacer
+			Escribir Sin Saltar matriz[n,m] " "	
+		FinPara
+		Escribir " " 
+	FinPara
+	
+FinSubProceso
+
+SubProceso Validador (matriz Por Referencia,n,m) 
+	
+	Definir validadorFila, validadorColumna, validadorDiagonal Como Entero
+	
+	validadorFila=0
+	validadorColumna=0
+	validadorDiagonal=0
+	
+	Para n=0 Hasta n-1 Hacer
+		Para m=0 Hasta m-1 Hacer
+			
+			validadorFila=validadorFila+matriz[n,m]	
+			validadorColumna= validadorColumna+matriz[m,n]	
+		FinPara
+		
+		Escribir "Fila " n+1 " : " validadorFila
+		Escribir "Columna " n+1 " : " validadorColumna
+		
+		si validadorFila = validadorColumna Entonces
+			Escribir "La fila y la columna son iguales en su suma." "Fila " n+1 " : " validadorFila " y columna " n+1 " : " validadorColumna 
+			validadorDiagonal= validadorDiagonal+1
+			
+		FinSi
+		
+		validadorColumna=0
+		validadorFila=0
+		
+	FinPara
+	
+	si validadorDiagonal= n Entonces
+		Escribir "La matriz es magica."
+	SiNo
+		Escribir "La matriz no es magica."
+	FinSi
+	
+	
+	//		Escribir "Fila " n+1 " : " validadorFila
+	//		Escribir "Columna " n+1 " : " validadorColumna
+	//		validadorDiagonal= validadorDiagonal+1
+	
+	
+	
+	
+FinSubProceso
+
+
 
